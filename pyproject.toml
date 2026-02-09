@@ -1,0 +1,92 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "politext"
+version = "0.1.0"
+description = "A modular Python package for collecting, processing, and organizing political text data for academic sentiment bias research"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Neil Khandelwal"}
+]
+keywords = ["politics", "nlp", "sentiment-analysis", "twitter", "data-collection"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+dependencies = [
+    "requests>=2.31.0",
+    "tweepy>=4.14.0",
+    "snscrape>=0.7.0",
+    "spacy>=3.7.0",
+    "pandas>=2.0.0",
+    "pyarrow>=14.0.0",
+    "pyyaml>=6.0",
+    "ratelimit>=2.2.1",
+    "tenacity>=8.2.0",
+    "ahocorasick-rs>=0.20.0",
+    "langdetect>=1.0.9",
+    "click>=8.1.0",
+    "tqdm>=4.66.0",
+    "presidio-analyzer>=2.2.0",
+    "presidio-anonymizer>=2.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "types-PyYAML>=6.0.0",
+]
+
+[project.scripts]
+politext-collect = "politext.cli.collect:main"
+politext-preprocess = "politext.cli.preprocess:main"
+politext-balance = "politext.cli.balance:main"
+
+[project.urls]
+Homepage = "https://github.com/neilkhandelwal/politext"
+Documentation = "https://github.com/neilkhandelwal/politext#readme"
+Repository = "https://github.com/neilkhandelwal/politext"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+politext = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=politext --cov-report=term-missing"

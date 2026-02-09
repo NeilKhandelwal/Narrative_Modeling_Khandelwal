@@ -1,0 +1,94 @@
+{
+  "category": "parties",
+  "weight": 1.5,
+  "description": "Political parties, ideologies, and political affiliations",
+  "keywords": [
+    "Democrat",
+    "Democrats",
+    "Democratic Party",
+    "Republican",
+    "Republicans",
+    "Republican Party",
+    "GOP",
+    "DNC",
+    "RNC",
+    "DCCC",
+    "NRCC",
+    "liberal",
+    "liberals",
+    "conservative",
+    "conservatives",
+    "progressive",
+    "progressives",
+    "libertarian",
+    "libertarians",
+    "Green Party",
+    "Independent",
+    "left-wing",
+    "right-wing",
+    "far-left",
+    "far-right",
+    "centrist",
+    "moderate",
+    "bipartisan",
+    "nonpartisan",
+    "partisan",
+    "MAGA",
+    "Tea Party",
+    "Freedom Caucus",
+    "Progressive Caucus",
+    "Blue Dog",
+    "Never Trump"
+  ],
+  "subcategories": {
+    "democratic": [
+      "Democrat",
+      "Democrats",
+      "Democratic Party",
+      "DNC",
+      "DCCC",
+      "Progressive Caucus",
+      "Blue Dog"
+    ],
+    "republican": [
+      "Republican",
+      "Republicans",
+      "Republican Party",
+      "GOP",
+      "RNC",
+      "NRCC",
+      "MAGA",
+      "Tea Party",
+      "Freedom Caucus",
+      "Never Trump"
+    ],
+    "ideology_left": [
+      "liberal",
+      "liberals",
+      "progressive",
+      "progressives",
+      "left-wing",
+      "far-left"
+    ],
+    "ideology_right": [
+      "conservative",
+      "conservatives",
+      "right-wing",
+      "far-right",
+      "libertarian",
+      "libertarians"
+    ],
+    "ideology_center": [
+      "centrist",
+      "moderate",
+      "bipartisan",
+      "nonpartisan",
+      "Independent"
+    ]
+  },
+  "metadata": {
+    "country": "US",
+    "last_updated": "2024-01",
+    "notes": "US political parties and ideological terms"
+  }
+}

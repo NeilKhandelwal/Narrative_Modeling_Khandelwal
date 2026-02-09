@@ -1,0 +1,97 @@
+# politext Configuration
+# Main configuration file for the Political Text Data Collection System
+
+# Twitter/X API Configuration
+twitter:
+  # API access tier: basic, pro, or academic
+  api_tier: basic
+
+  # Rate limits per 15-minute window (adjusted based on tier)
+  # Basic tier defaults shown; pro/academic have higher limits
+  search_rate_limit: 180
+  user_rate_limit: 900
+  tweet_rate_limit: 900
+
+# Data Storage Configuration
+storage:
+  # Data directories (relative to project root)
+  raw_data_path: data/raw
+  processed_data_path: data/processed
+  annotated_data_path: data/annotated
+
+  # SQLite database for metadata
+  sqlite_path: data/politext.db
+
+  # Parquet file settings
+  parquet_compression: snappy  # Options: snappy, gzip, zstd, none
+  parquet_row_group_size: 100000
+
+# Data Collection Configuration
+collection:
+  # Number of tweets per API request
+  batch_size: 100
+
+  # Maximum tweets to collect per query
+  max_results_per_query: 10000
+
+  # Save checkpoint every N tweets
+  checkpoint_interval: 500
+
+  # Retry settings for API errors
+  retry_max_attempts: 5
+  retry_base_delay: 2.0  # seconds
+  retry_max_delay: 300.0  # 5 minutes max
+
+# Text Preprocessing Configuration
+preprocessing:
+  # spaCy model for NLP tasks
+  spacy_model: en_core_web_sm
+
+  # Text length filters
+  min_text_length: 10
+  max_text_length: 10000
+
+  # Text normalization
+  remove_urls: true
+  remove_mentions: false  # Keep mentions for context
+  normalize_hashtags: true
+
+  # Language filtering
+  detect_language: true
+  target_language: en
+
+# Political Content Detection Configuration
+detection:
+  # Path to keyword configuration files
+  keywords_path: configs/keywords
+
+  # Minimum score to classify as political content
+  min_political_score: 0.3
+
+  # Named entity types to extract
+  entity_types:
+    - PERSON
+    - ORG
+    - GPE
+    - EVENT
+    - LAW
+
+# Ethical Data Handling Configuration
+ethics:
+  # Username anonymization
+  anonymize_usernames: true
+  hash_algorithm: sha256
+  # hash_salt: Set in credentials.yaml or environment variable
+
+  # PII removal
+  remove_pii: true
+
+  # Data retention (days)
+  data_retention_days: 365
+
+  # Consent requirements
+  require_consent: false
+
+# Logging Configuration
+log_level: INFO
+# log_file: logs/politext.log  # Uncomment to log to file
